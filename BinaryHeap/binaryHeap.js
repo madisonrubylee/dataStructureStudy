@@ -1,4 +1,5 @@
 let arr= [10,11,12,13,14,15,16,17,18,19]
+let unsorted = [10,13,11,17,14,12,15,19,18,16]
 
 // Let's convert the ascending array into a max heap 
 function makeMaxHeap(arr) {
@@ -22,4 +23,19 @@ function makeMaxHeap(arr) {
         }
     }
     return maxHeap
+}
+
+// heap sort 
+// worst time complexity : O (n log n), space complexity: O(1)
+function heapSort(arr) {
+    let sorted = []
+    let maxHeap = makeMaxHeap(arr)
+    while(maxHeap.length) {
+        let max = maxHeap.shift()
+        console.log('max', max)
+        sorted.push(max)
+        maxHeap = makeMaxHeap(maxHeap)
+        console.log('maxHeap', maxHeap)
+    }
+    return sorted
 }
